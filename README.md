@@ -36,8 +36,8 @@ Before you begin, ensure you have the following installed:
 1. **Clone the Repository**
 
    ```bash
-   git clone https://github.com/your-username/FlaskStarterKit.git
-   cd FlaskStarterKit
+   git clone https://github.com/Rahulkumar010/FlaskWebSync.git
+   cd FlaskWebSync
    ```
 
 2. **Create a Virtual Environment**
@@ -80,7 +80,7 @@ Before you begin, ensure you have the following installed:
 ### Directory Structure
 
 ```
-FlaskStarterKit/
+FlaskWebSync/
 │
 ├── app               # Main application
 ├── .env              # Environment variables
