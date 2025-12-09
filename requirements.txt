@@ -12,3 +12,5 @@ pytest
 python-dotenv
 Werkzeug
 WTForms
+waitress
+email_validator

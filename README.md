@@ -77,6 +77,43 @@ Before you begin, ensure you have the following installed:
 
    Open your web browser and navigate to `http://127.0.0.1:5000/`.
 
+
+- Run with `waitress` (production-like):
+
+```bash
+waitress-serve --host=0.0.0.0 --port=5000 server:app
+```
+
+**Production (Waitress) — notes**
+
+- `server.py` currently starts the Flask development server (`app.run()`) when run directly. For production deployments, use `waitress-serve` (as shown above) or another WSGI server. The project's `Dockerfile` uses `waitress-serve` by default.
+- Ensure `waitress` is present in `requirements.txt` (it is listed in this repo).
+
+**Pre-push checklist**
+
+- **Environment:** Verify `.env` / instance config does not contain secrets committed to the repo.
+- **Tests:** Run `pytest -q` and resolve failures before pushing.
+- **Build:** Optionally build the Docker image locally to confirm the container starts:
+
+### Running with Docker / Containers
+
+- **Files added:** `Dockerfile`, `compose.yaml`, `.dockerignore`, `README.Docker.md`.
+- **Build & run (Docker Compose):**
+
+```bash
+docker compose up --build
+```
+
+- **Build image and run (Docker):**
+
+```bash
+docker build -t flaskwebsync .
+docker run --rm -p 5000:5000 flaskwebsync
+```
+
+- The container serves the app on port `5000` (host) mapped to `5000` in the container.
+- See `README.Docker.md` for additional deployment and platform notes.
+
 ### Directory Structure
 
 ```
